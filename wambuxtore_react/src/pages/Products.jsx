@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import CtaBanner from '../components/CtaBanner';
 import Footer from '../components/Footer';
+import { API_BASE } from '../config/api';
 
 const PLACEHOLDER = 'https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg';
-const API_BASE = process.env.REACT_APP_API_BASE_URL || 'http://127.0.0.1:8000/api';
 const CATEGORIES = ['Laptops', 'Phones', 'Televisions'];
 
 const cardStyles = {
