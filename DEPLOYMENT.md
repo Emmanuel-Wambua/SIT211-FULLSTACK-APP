@@ -29,7 +29,7 @@ Environment variables:
 ```text
 DEBUG=False
 SECRET_KEY=<generate a long random value>
-ALLOWED_HOSTS=<your-service-name>.onrender.com
+ALLOWED_HOSTS=wambuxtore-backend-mfml.onrender.com
 CORS_ALLOWED_ORIGINS=https://<your-vercel-app>.vercel.app
 CSRF_TRUSTED_ORIGINS=https://<your-vercel-app>.vercel.app
 DATABASE_URL=<your Render/Postgres internal database URL, recommended for persistent login users>
@@ -45,7 +45,7 @@ EMAIL_HOST_PASSWORD=<your Gmail app password>
 After Render deploys, your API base URL will be:
 
 ```text
-https://<your-service-name>.onrender.com/api
+https://wambuxtore-backend-mfml.onrender.com/api
 ```
 
 If you do not set `DATABASE_URL`, the backend falls back to SQLite. That is okay for a quick demo, but accounts stored through Django auth may not persist reliably on Render.
@@ -65,7 +65,7 @@ Settings:
 Environment variable:
 
 ```text
-REACT_APP_API_BASE_URL=https://<your-service-name>.onrender.com/api
+REACT_APP_API_BASE_URL=https://wambuxtore-backend-mfml.onrender.com/api
 ```
 
 Redeploy the frontend after adding/changing this variable, because Create React App embeds `REACT_APP_*` variables during the build.
@@ -86,7 +86,7 @@ Then redeploy the backend.
 Open these URLs:
 
 ```text
-https://<your-service-name>.onrender.com/api/products/
+https://wambuxtore-backend-mfml.onrender.com/api/products/
 https://<your-vercel-app>.vercel.app
 ```
 

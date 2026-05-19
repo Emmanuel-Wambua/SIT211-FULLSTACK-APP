@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: wambuxtore-backend
+    name: wambuxtore-backend-mfml
     env: python
     plan: free
     rootDir: wambuxtore_backend_fixed

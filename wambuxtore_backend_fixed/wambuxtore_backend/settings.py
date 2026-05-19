@@ -13,6 +13,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG", "True") == "True"
+
+
+def env_list(name, default=""):
+    return [
+        value.strip().rstrip("/")
+        for value in os.getenv(name, default).split(",")
+        if value.strip()
+    ]
+
+
 ALLOWED_HOSTS = [
     host.strip()
     for host in os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
@@ -83,20 +93,12 @@ _mongo_client = pymongo.MongoClient(os.getenv("MONGO_URI"))
 MONGO_DB = _mongo_client[os.getenv("MONGO_DB_NAME", "wambuxtore")]
 
 # CORS
-CORS_ALLOWED_ORIGINS = [
-    origin.strip()
-    for origin in os.getenv(
-        "CORS_ALLOWED_ORIGINS",
-        "http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001",
-    ).split(",")
-    if origin.strip()
-]
+CORS_ALLOWED_ORIGINS = env_list(
+    "CORS_ALLOWED_ORIGINS",
+    "http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001",
+)
 CORS_ALLOW_ALL_ORIGINS = DEBUG  # Allow all origins in development
-CSRF_TRUSTED_ORIGINS = [
-    origin.strip()
-    for origin in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
-    if origin.strip()
-]
+CSRF_TRUSTED_ORIGINS = env_list("CSRF_TRUSTED_ORIGINS")
 
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
