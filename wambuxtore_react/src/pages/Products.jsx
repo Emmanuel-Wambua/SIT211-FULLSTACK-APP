@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import CtaBanner from '../components/CtaBanner';
 import Footer from '../components/Footer';
-import { API_BASE } from '../config/api';
+import { API } from '../api';
 
 const PLACEHOLDER = 'https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg';
 const CATEGORIES = ['Laptops', 'Phones', 'Televisions'];
@@ -337,7 +337,7 @@ function Products() {
   useEffect(() => {
     Promise.all(
       CATEGORIES.map((cat) =>
-        fetch(`${API_BASE}/products/?category=${cat}`)
+        fetch(API.productsByCategory(cat))
           .then((res) => { if (!res.ok) throw new Error(); return res.json(); })
           .then((data) => ({ category: cat, products: data, loading: false }))
           .catch(() => ({ category: cat, products: [], loading: false }))

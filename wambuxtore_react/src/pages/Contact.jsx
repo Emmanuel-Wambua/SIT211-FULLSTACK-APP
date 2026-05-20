@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
-import { API_BASE } from '../config/api';
+import { API } from '../api';
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -24,7 +24,7 @@ function Contact() {
     setError(null);
 
     try {
-      const response = await fetch(`${API_BASE}/contact/`, {
+      const response = await fetch(API.contact, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

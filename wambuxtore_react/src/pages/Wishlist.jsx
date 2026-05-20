@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Footer from '../components/Footer';
-import { API_BASE } from '../config/api';
+import { API } from '../api';
 
 const PLACEHOLDER = 'https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg';
 
@@ -271,7 +271,7 @@ function Wishlist() {
     // Fetch each product by ID from the backend
     Promise.all(
       savedIds.map((id) =>
-        fetch(`${API_BASE}/products/${id}/`)
+        fetch(API.productById(id))
           .then((r) => r.ok ? r.json() : null)
           .catch(() => null)
       )

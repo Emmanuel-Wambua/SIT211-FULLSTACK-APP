@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Footer from '../components/Footer';
-import { API_BASE } from '../config/api';
+import { API } from '../api';
 
 const PLACEHOLDER = 'https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg';
 
@@ -255,7 +255,7 @@ function Checkout() {
         })),
       };
 
-      const res = await fetch(`${API_BASE}/orders/`, {
+      const res = await fetch(API.orders, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderPayload),

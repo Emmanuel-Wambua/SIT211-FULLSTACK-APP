@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { API_BASE } from '../config/api';
+import { API } from '../api';
 
 const styles = {
   page: {
@@ -173,7 +173,7 @@ function LoginForm({ onSuccess }) {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE}/auth/login/`, {
+      const res = await fetch(API.login, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password: formData.password }),
@@ -258,7 +258,7 @@ function SignupForm({ onSwitch }) {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE}/auth/register/`, {
+      const res = await fetch(API.register, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
