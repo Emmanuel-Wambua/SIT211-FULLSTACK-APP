@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'anymail',
     'django.contrib.messages',
     'django.contrib.contenttypes',
     'django.contrib.staticfiles',
@@ -140,7 +141,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ANYMAIL = {
     "SENDGRID_API_KEY": os.environ.get("SENDGRID_API_KEY"),
 }
-EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend")
+EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND", "anymail.backends.sendgrid.EmailBackend")
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 
 # Email settings
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
