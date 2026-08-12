@@ -134,7 +134,7 @@ wambuxtore/
 
 ```bash
 # from the project root
-cd backend
+cd wambuxtore_backend_fixed
 python -m venv venv
 .\venv\Scripts\Activate.ps1      # Windows PowerShell
 pip install -r requirements.txt
@@ -145,7 +145,7 @@ python manage.py runserver
 ### Frontend
 
 ```bash
-cd frontend
+cd wambuxtore_react
 npm install
 npm start
 ```
