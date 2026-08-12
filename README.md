@@ -3,7 +3,7 @@
 A full-stack electronics e-commerce platform built with a decoupled architecture — a Django REST API backend and a React frontend — designed to give customers a smooth browsing, wishlisting, and ordering experience.
 
 **Live site:** [wambuxtore frontend](https://wambuxtore-frontend.vercel.app/)
-**API backend:** (wambuxtore-backend-mfml)
+**API backend:** [wambuxtore-backend-mfml](https://wambuxtore-backend-mfml.onrender.com)
 
 ---
 
